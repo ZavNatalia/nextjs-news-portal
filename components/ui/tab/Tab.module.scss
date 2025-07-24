@@ -1,0 +1,14 @@
+.tab {
+  padding: 8px 12px;
+  background-color: #232351;
+  border-radius: 8px;
+  transition: all .3s ease;
+  &:hover {
+    background-color: #31316f;
+  }
+}
+
+.selected {
+  color: #e0e025;
+  background-color: #31316f;
+}

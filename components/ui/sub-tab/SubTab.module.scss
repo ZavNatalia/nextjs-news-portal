@@ -1,0 +1,15 @@
+.subTab {
+  margin-top: 12px;
+  padding: 4px 8px;
+  background-color: #390339;
+  border-radius: 8px;
+  transition: all .3s ease;
+  &:hover {
+    background-color: #530453;
+  }
+}
+
+.selected {
+  color: #bdbd1f;
+  background-color: #530453;
+}

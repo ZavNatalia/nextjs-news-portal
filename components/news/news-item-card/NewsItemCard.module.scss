@@ -1,0 +1,21 @@
+.card {
+  padding: 6px 24px;
+  display: flex;
+  flex-direction: column;
+  background-color: #1f1f3c;
+  border-radius: 24px;
+  transition: all .3s ease;
+  &:hover {
+    background-color: #2a2a51;
+    cursor: pointer;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+  }
+
+}
+
