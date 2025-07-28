@@ -15,7 +15,7 @@ export async function getLatestNews() {
 }
 
 export async function getAvailableNewsYears() {
-    return DUMMY_NEWS.reduce((years, news) => {
+    return DUMMY_NEWS.reduce((years: number[], news) => {
         const year = new Date(news.date).getFullYear();
         if (!years.includes(year)) {
             years.push(year);
@@ -24,8 +24,8 @@ export async function getAvailableNewsYears() {
     }, []).sort((a, b) => b - a);
 }
 
-export async function getAvailableNewsMonths(year) {
-    return DUMMY_NEWS.reduce((months, news) => {
+export async function getAvailableNewsMonths(year: number) {
+    return DUMMY_NEWS.reduce((months: number[], news) => {
         const newsYear = new Date(news.date).getFullYear();
         if (newsYear === +year) {
             const month = new Date(news.date).getMonth();
@@ -37,13 +37,13 @@ export async function getAvailableNewsMonths(year) {
     }, []).sort((a, b) => b - a);
 }
 
-export async function getNewsForYear(year) {
+export async function getNewsForYear(year: number) {
     return DUMMY_NEWS.filter(
         (news) => new Date(news.date).getFullYear() === +year
     );
 }
 
-export async function getNewsForYearAndMonth(year, month) {
+export async function getNewsForYearAndMonth(year: number, month: number) {
     return DUMMY_NEWS.filter((news) => {
         const newsYear = new Date(news.date).getFullYear();
         const newsMonth = new Date(news.date).getMonth() + 1;

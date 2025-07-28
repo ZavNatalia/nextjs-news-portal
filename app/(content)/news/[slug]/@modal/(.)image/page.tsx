@@ -1,10 +1,9 @@
-
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Modal from '../../../../../../components/ui/Modal';
 import { getNewsItem } from '../../../../../../lib/news';
 
-export default async function InterceptedImagePage({params}) {
+export default async function InterceptedImagePage({params}: { params: Promise<{ slug: string }> }) {
     const {slug} = await params;
     const newsItem = await getNewsItem(slug);
 
@@ -22,6 +21,6 @@ export default async function InterceptedImagePage({params}) {
                     height={300}/>
             </div>
         </Modal>
-)
+    )
 
 }

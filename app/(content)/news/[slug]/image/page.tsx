@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image'
 import { getNewsItem } from '../../../../../lib/news';
 
-export default async function ImagePage({params}) {
+export default async function ImagePage({params}: {params: Promise<{ slug: string }>}) {
     const {slug} = await params;
     const newsItem = await getNewsItem(slug);
 

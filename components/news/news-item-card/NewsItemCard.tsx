@@ -3,7 +3,7 @@ import styles from './NewsItemCard.module.scss';
 import Image from 'next/image'
 import Link from 'next/link';
 
-function NewsItemCard({item}: INewsItem) {
+function NewsItemCard({item}: {item: INewsItem}) {
     const {title, date, slug, description, image} = item;
     return (
         <li className={styles.card}>

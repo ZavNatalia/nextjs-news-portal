@@ -57,14 +57,14 @@ export default async function FilteredNewsPage({
 }) {
     const {filter} = await params;
 
-    const selectedYear = filter?.[0];
-    const selectedMonth = filter?.[1];
+    const selectedYear = Number(filter?.[0]);
+    const selectedMonth = Number(filter?.[1]);
 
     let news;
     let newsContent = <p>Select a filter to view archived news.</p>;
 
-    const years = await getAvailableNewsYears();
-    const months = await getAvailableNewsMonths(selectedYear);
+    const years: number[] = await getAvailableNewsYears();
+    const months: number[] = await getAvailableNewsMonths(selectedYear);
 
     if (selectedYear && selectedMonth) {
         news = await getNewsForYearAndMonth(selectedYear, selectedMonth)
@@ -91,7 +91,7 @@ export default async function FilteredNewsPage({
                     <ul>
                         {years.map(year => <li key={year}>
                             <Link href={`/archive/${year}`}>
-                                <Tab title={year} isSelected={selectedYear == year}/>
+                                <Tab title={year.toString()} isSelected={selectedYear == year}/>
                             </Link>
                         </li>)}
                     </ul>
